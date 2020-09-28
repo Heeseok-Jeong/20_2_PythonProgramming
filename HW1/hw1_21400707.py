@@ -1,11 +1,11 @@
 #Import sys to use sys.exit()
 import sys
 
-##Ask user to quit the program and quit this program
+##Get enter from user to quit the program and quit this program
 def terminate():
-    #explain user to put enter key to quit the program
+    #show user to put enter key to quit the program
     print("Please enter to quit the program.")
-    #get input to get enter
+    #wait until get enter
     input()
     #then, quit the program
     sys.exit()
