@@ -38,7 +38,7 @@ def check_valid_num(num, range_from, range_to):
 
     return num
 
-##Check num_convert is valid and return that number
+##Check num_convert is valid and return that float number
 def check_valid_num_convert(num):
     #check the number is empty
     if num == '':
@@ -50,7 +50,7 @@ def check_valid_num_convert(num):
     #check the number isn't numeric value
     try:
         #if the input isn't numeric value
-        num = int(num)
+        num = float(num)
     #print what's wrong
     except(ValueError):
         print("Error : You put a non-numeric value!")
@@ -89,54 +89,398 @@ num_func = input("Which converter do you want?(1~7) : ")
 #Check the function number is valid and get the string->number
 num_func = check_valid_num(num_func, 1, 7)
 
-#1. 길이(1. 밀리미터->센티미터, 2. 센티미터->미터, 3. 미터->킬로미터)
-#2. 질량(1. 밀리그램->그램, 2. 그램->킬로그램, 3. 킬로그램->톤)
-#3. 환율(1. 원->달러, 2. 원->엔, 3. 원->위안)
-#4. 주파수(1. 헤르츠->킬로헤르츠, 2. 킬로헤르츠->메가헤르츠, 3.메가헤르츠->기가헤르츠)
-#5. 온도(1. 화씨->섭씨, 2. 섭씨->화씨, 3. 켈빈->섭씨, 4. 섭씨->켈빈)
-#6. 데이터크기(1. 비트->바이트, 2. 바이트->메가바이트, 3. 메가바이트->기가바이트)
-#7. 시간(1. 년->달, 2. 년->주, 3. 년->일)
 #Length Converter function
 if num_func == 1:
     #Show user what function chose
     print("\nLength Converter!\n")
     #Show user what sub-menu of Length Converter exist
     print("Sub-Menu")
-    print("1-1. millimeters -> centimeters")
-    print("1-2. centimeters -> meters")
-    print("1-3. meters -> kilometers")
+    print("1-1. CentiMeters -> MilliMeters")
+    print("1-2. Meters -> CentiMeters")
+    print("1-3. KiloMeters -> Meters")
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
     #Check the sub-menu number is valid and get the string->number
     num_sub = check_valid_num(num_sub, 1, 3)
 
-    #millimeters -> centimeters
+    #CentiMeters -> MilliMeters mode
     if num_sub == 1:
-        print("\nmillimeters -> centimeters!\n")
+        print("\nCentiMeters -> MilliMeters!\n")
         #set scale_before
-        scale_before = "millimeters"
+        scale_before = "CentiMeters"
         #set scale_after
-        scale_after = "centimeters"
+        scale_after = "MilliMeters"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
         #Check the sub-menu number is valid and get the string->number
         num_convet = check_valid_num_convert(num_convert)
-        #convert num_convet millimeters to proper centimeters
-        result = num_convet/10
-    #millimeters -> centimeters
-    elif num_sub == 1:
-        print("\nmillimeters -> centimeters!\n")
+        #convert num_convet CentiMeters to proper MilliMeters
+        result = num_convet*10
+    #Meters -> CentiMeters mode
+    elif num_sub == 2:
+        print("\nMeters -> CentiMeters!\n")
         #set scale_before
-        scale_before = "millimeters"
+        scale_before = "Meters"
         #set scale_after
-        scale_after = "centimeters"
+        scale_after = "CentiMeters"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
         #Check the sub-menu number is valid and get the string->number
         num_convet = check_valid_num_convert(num_convert)
-        #convert num_convet millimeters to proper centimeters
-        result = num_convet/10
+        #convert num_convet Meters to proper CentiMeters
+        result = num_convet*100
+    #KiloCentis -> Meters mode
+    elif num_sub == 3:
+        print("\nKiloCentis -> Meters!\n")
+        #set scale_before
+        scale_before = "KiloMeters"
+        #set scale_after
+        scale_after = "Meters"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet KiloMeters to proper Meters
+        result = num_convet*1000
+#Mass Converter function
+elif num_func == 2:
+    #Show user what function chose
+    print("\nMass Converter!\n")
+    #Show user what sub-menu of Mass Converter exist
+    print("Sub-Menu")
+    print("2-1. Gram -> MilliGram")
+    print("2-2. KiloGram -> Gram")
+    print("2-3. Tonne -> KiloGram")
+
+    #Get a sub-menu number user want to use
+    num_sub = input("Which sub-menu do you want?(1~3) : ")
+    #Check the sub-menu number is valid and get the string->number
+    num_sub = check_valid_num(num_sub, 1, 3)
+
+    #Gram -> MilliGram mode
+    if num_sub == 1:
+        print("\nGram -> MilliGram!\n")
+        #set scale_before
+        scale_before = "Gram"
+        #set scale_after
+        scale_after = "MilliGram"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Gram to proper MilliGram
+        result = num_convet*1000
+    #KiloGram -> Gram mode
+    elif num_sub == 2:
+        print("\nKiloGram -> Gram!\n")
+        #set scale_before
+        scale_before = "KiloGram"
+        #set scale_after
+        scale_after = "Gram"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet KiloGram to proper Gram
+        result = num_convet*1000
+    #Tonne -> KiloGram mode
+    elif num_sub == 3:
+        print("\nTonne -> KiloGram!\n")
+        #set scale_before
+        scale_before = "Tonne"
+        #set scale_after
+        scale_after = "KiloGram"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Tonne to proper KiloGram
+        result = num_convet*1000
+#Currency Converter function
+elif num_func == 3:
+    #Show user what function chose
+    print("\nCurrency Converter!\n")
+    #Show user what sub-menu of Currency Converter exist
+    print("Sub-Menu")
+    print("3-1. Dollars -> Won")
+    print("3-2. Yen -> Won")
+    print("3-3. Yuan -> Won")
+
+    #Get a sub-menu number user want to use
+    num_sub = input("Which sub-menu do you want?(1~3) : ")
+    #Check the sub-menu number is valid and get the string->number
+    num_sub = check_valid_num(num_sub, 1, 3)
+
+    #Dollars -> Won mode
+    if num_sub == 1:
+        print("\nDollars -> Won!\n")
+        #set scale_before
+        scale_before = "Dollars"
+        #set scale_after
+        scale_after = "Won"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Dollars to proper Won
+        result = num_convet*1200
+    #Yen -> Won mode
+    elif num_sub == 2:
+        print("\nYen -> Won!\n")
+        #set scale_before
+        scale_before = "Yen"
+        #set scale_after
+        scale_after = "Won"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Yen to proper Won
+        result = num_convet*11
+    #Yuan -> Won mode
+    elif num_sub == 3:
+        print("\nYuan -> Won!\n")
+        #set scale_before
+        scale_before = "Yuan"
+        #set scale_after
+        scale_after = "Won"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Yuan to proper Won
+        result = num_convet*170
+#Frequency Converter function
+elif num_func == 4:
+    #Show user what function chose
+    print("\nFrequency Converter!\n")
+    #Show user what sub-menu of Frequency Converter exist
+    print("Sub-Menu")
+    print("4-1. KiloHertz -> Hertz")
+    print("4-2. MegaHertz -> KiloHertz")
+    print("4-3. GigaHertz -> MegaHertz")
+
+    #Get a sub-menu number user want to use
+    num_sub = input("Which sub-menu do you want?(1~3) : ")
+    #Check the sub-menu number is valid and get the string->number
+    num_sub = check_valid_num(num_sub, 1, 3)
+
+    #Hertz -> KiloHertz mode
+    if num_sub == 1:
+        print("\nKiloHertz -> Hertz!\n")
+        #set scale_before
+        scale_before = "KiloHertz"
+        #set scale_after
+        scale_after = "Hertz"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet KiloHertz to proper Hertz
+        result = num_convet*1000
+    #MegaHertz -> KiloHertz mode
+    elif num_sub == 2:
+        print("\nMegaHertz -> KiloHertz!\n")
+        #set scale_before
+        scale_before = "MegaHertz"
+        #set scale_after
+        scale_after = "KiloHertz"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet MegaHertz to proper KiloHertz
+        result = num_convet*1000
+    #GigaHertz -> MegaHertz mode
+    elif num_sub == 3:
+        print("\nGigaHertz -> MegaHertz!\n")
+        #set scale_before
+        scale_before = "GigaHertz"
+        #set scale_after
+        scale_after = "MegaHertz"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet GigaHertz to proper MegaHertz
+        result = num_convet*1000
+#Temperature Converter function
+elif num_func == 5:
+    #Show user what function chose
+    print("\nTemperature Converter!\n")
+    #Show user what sub-menu of Temperature Converter exist
+    print("Sub-Menu")
+    print("5-1. Fahrenheit -> Celsius")
+    print("5-2. Celsius -> Fahrenheit")
+    print("5-3. Kelvin -> Celsius")
+    print("5-4. Celsius -> Kelvin")
+
+    #Get a sub-menu number user want to use
+    num_sub = input("Which sub-menu do you want?(1~4) : ")
+    #Check the sub-menu number is valid and get the string->number
+    num_sub = check_valid_num(num_sub, 1, 4)
+
+    #Fahrenheit -> Celsius mode
+    if num_sub == 1:
+        print("\nFahrenheit -> Celsius!\n")
+        #set scale_before
+        scale_before = "Fahrenheit"
+        #set scale_after
+        scale_after = "Celsius"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Fahrenheit to proper Celsius
+        result = (num_convet-32)*5/9
+    #Celsius -> Fahrenheit mode
+    elif num_sub == 2:
+        print("\nCelsius -> Fahrenheit!\n")
+        #set scale_before
+        scale_before = "Celsius"
+        #set scale_after
+        scale_after = "Fahrenheit"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Celsius to proper Fahrenheit
+        result = (num_convet*9/5)+32
+    #Kelvin -> Celsius mode
+    elif num_sub == 3:
+        print("\nKelvin -> Celsius!\n")
+        #set scale_before
+        scale_before = "Kelvin"
+        #set scale_after
+        scale_after = "Celsius"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Kelvin to proper Celsius
+        result = num_convet-273.15
+    #Celsius -> Kelvin mode
+    elif num_sub == 4:
+        print("\nCelsius -> Kelvin!\n")
+        #set scale_before
+        scale_before = "Celsius"
+        #set scale_after
+        scale_after = "Kelvin"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Celsius to proper Kelvin
+        result = num_convet+273.15
+#Data Storage Converter function
+elif num_func == 6:
+    #Show user what function chose
+    print("\nData Storage Converter!\n")
+    #Show user what sub-menu of Data Storage Converter exist
+    print("Sub-Menu")
+    print("6-1. Byte -> Bit")
+    print("6-2. MegaByte -> Byte")
+    print("6-3. GigaByte -> MegaByte")
+
+    #Get a sub-menu number user want to use
+    num_sub = input("Which sub-menu do you want?(1~3) : ")
+    #Check the sub-menu number is valid and get the string->number
+    num_sub = check_valid_num(num_sub, 1, 3)
+
+    #Byte -> Byte mode
+    if num_sub == 1:
+        print("\nByte -> Bit!\n")
+        #set scale_before
+        scale_before = "Byte"
+        #set scale_after
+        scale_after = "Bit"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Byte to proper Bit
+        result = num_convet*8
+    #MegaByte -> Byte mode
+    elif num_sub == 2:
+        print("\nMegaByte -> Byte!\n")
+        #set scale_before
+        scale_before = "MegaByte"
+        #set scale_after
+        scale_after = "Byte"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet MegaByte to proper Byte
+        result = num_convet*1000000
+    #GigaByte -> MegaByte mode
+    elif num_sub == 3:
+        print("\nGigaByte -> MegaByte!\n")
+        #set scale_before
+        scale_before = "GigaByte"
+        #set scale_after
+        scale_after = "MegaByte"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet GigaByte to proper MegaByte
+        result = num_convet*1000
+#Time Converter function
+elif num_func == 7:
+    #Show user what function chose
+    print("\nTime Converter!\n")
+    #Show user what sub-menu of Time Converter exist
+    print("Sub-Menu")
+    print("7-1. Year -> Month")
+    print("7-2. Year -> Week")
+    print("7-3. Year -> Day")
+
+    #Get a sub-menu number user want to use
+    num_sub = input("Which sub-menu do you want?(1~3) : ")
+    #Check the sub-menu number is valid and get the string->number
+    num_sub = check_valid_num(num_sub, 1, 3)
+
+    #Year -> Month mode
+    if num_sub == 1:
+        print("\nYear -> Month!\n")
+        #set scale_before
+        scale_before = "Year"
+        #set scale_after
+        scale_after = "Month"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Year to proper Month
+        result = num_convet*12
+    #Year -> Week mode
+    elif num_sub == 2:
+        print("\nYear -> Week!\n")
+        #set scale_before
+        scale_before = "Year"
+        #set scale_after
+        scale_after = "Week"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Year to proper Week
+        result = num_convet*52.143
+    #Year -> Day mode
+    elif num_sub == 3:
+        print("\nYear -> Day!\n")
+        #set scale_before
+        scale_before = "Year"
+        #set scale_after
+        scale_after = "Day"
+        #Get a number to convert
+        num_convert = input("Put a number to convert(positive integer) : ")
+        #Check the sub-menu number is valid and get the string->number
+        num_convet = check_valid_num_convert(num_convert)
+        #convert num_convet Year to proper Day
+        result = num_convet*365
 
 #print result
-print("\nResult : ", num_convert, scale_before, "-> ", '%.2f' % result, scale_after)
+print("\nResult :", num_convert, scale_before, "-> ", '%.2f' % result, scale_after)
