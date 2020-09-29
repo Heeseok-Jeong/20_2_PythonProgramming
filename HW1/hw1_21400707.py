@@ -10,9 +10,9 @@ def terminate():
     #then, quit the program
     sys.exit()
 
-##Check num_func and num_sub are valid and return that number
+##Check num_func and num_sub are valid and return that int changed value
 def check_valid_num(num, range_from, range_to):
-    #check the number is empty
+    #check the string is empty
     if num == '':
         #print what's wrong
         print("Error : You put an empty value!")
@@ -21,7 +21,7 @@ def check_valid_num(num, range_from, range_to):
 
     #check the number isn't numeric value
     try:
-        #if the input isn't numeric value
+        #if the input isn't numeric value by chaning string to int
         num = int(num)
     #print what's wrong
     except(ValueError):
@@ -36,34 +36,43 @@ def check_valid_num(num, range_from, range_to):
         #go to terminate condition
         terminate()
 
+    #return string to int changed value
     return num
 
-##Check num_convert is valid and return that float number
+##Check num_convert is valid and return that int changed value
 def check_valid_num_convert(num):
-    #check the number is empty
+    #check the string is empty
     if num == '':
         #print what's wrong
         print("Error : You put an empty value!")
         #go to terminate condition
         terminate()
 
+    #check the string contains dot to distinguish it is float type, only positive integer allowed
+    if '.' in num:
+        #print what's wrong
+        print("Error : You didn't put a positive integer!")
+        #go to terminate condition
+        terminate()
+
     #check the number isn't numeric value
     try:
-        #if the input isn't numeric value
-        num = float(num)
+        #if the input isn't numeric value by chaning string to int
+        num = int(num)
     #print what's wrong
     except(ValueError):
         print("Error : You put a non-numeric value!")
         #go to terminate condition
         terminate()
 
-    #check the number is out of range
+    #check the number is out of range, only positive integer allowed
     if num<1:
         #print what's wrong
         print("Error : You didn't put a positive integer!")
         #go to terminate condition
         terminate()
 
+    #return string to int changed value
     return num
 
 #Show user what is the program and how to use it
@@ -86,7 +95,7 @@ print("7. Time Converter")
 
 #Get a function number user want to use, 1~7
 num_func = input("Which converter do you want?(1~7) : ")
-#Check the function number is valid and get the string->number
+#Check the function number is valid and get the string->int
 num_func = check_valid_num(num_func, 1, 7)
 
 #Length Converter function
@@ -101,7 +110,7 @@ if num_func == 1:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 3)
 
     #CentiMeters -> MilliMeters mode
@@ -113,7 +122,7 @@ if num_func == 1:
         scale_after = "MilliMeters"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet CentiMeters to proper MilliMeters
         result = num_convet*10
@@ -126,20 +135,20 @@ if num_func == 1:
         scale_after = "CentiMeters"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Meters to proper CentiMeters
         result = num_convet*100
-    #KiloCentis -> Meters mode
+    #KiloMeters -> Meters mode
     elif num_sub == 3:
-        print("\nKiloCentis -> Meters!\n")
+        print("\nKiloMeters -> Meters!\n")
         #set scale_before
         scale_before = "KiloMeters"
         #set scale_after
         scale_after = "Meters"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet KiloMeters to proper Meters
         result = num_convet*1000
@@ -155,7 +164,7 @@ elif num_func == 2:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 3)
 
     #Gram -> MilliGram mode
@@ -167,7 +176,7 @@ elif num_func == 2:
         scale_after = "MilliGram"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Gram to proper MilliGram
         result = num_convet*1000
@@ -180,7 +189,7 @@ elif num_func == 2:
         scale_after = "Gram"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet KiloGram to proper Gram
         result = num_convet*1000
@@ -193,7 +202,7 @@ elif num_func == 2:
         scale_after = "KiloGram"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Tonne to proper KiloGram
         result = num_convet*1000
@@ -209,7 +218,7 @@ elif num_func == 3:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 3)
 
     #Dollars -> Won mode
@@ -221,7 +230,7 @@ elif num_func == 3:
         scale_after = "Won"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Dollars to proper Won
         result = num_convet*1200
@@ -234,7 +243,7 @@ elif num_func == 3:
         scale_after = "Won"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Yen to proper Won
         result = num_convet*11
@@ -247,7 +256,7 @@ elif num_func == 3:
         scale_after = "Won"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Yuan to proper Won
         result = num_convet*170
@@ -263,7 +272,7 @@ elif num_func == 4:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 3)
 
     #Hertz -> KiloHertz mode
@@ -275,7 +284,7 @@ elif num_func == 4:
         scale_after = "Hertz"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet KiloHertz to proper Hertz
         result = num_convet*1000
@@ -288,7 +297,7 @@ elif num_func == 4:
         scale_after = "KiloHertz"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet MegaHertz to proper KiloHertz
         result = num_convet*1000
@@ -301,7 +310,7 @@ elif num_func == 4:
         scale_after = "MegaHertz"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet GigaHertz to proper MegaHertz
         result = num_convet*1000
@@ -318,7 +327,7 @@ elif num_func == 5:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~4) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 4)
 
     #Fahrenheit -> Celsius mode
@@ -330,7 +339,7 @@ elif num_func == 5:
         scale_after = "Celsius"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Fahrenheit to proper Celsius
         result = (num_convet-32)*5/9
@@ -343,7 +352,7 @@ elif num_func == 5:
         scale_after = "Fahrenheit"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Celsius to proper Fahrenheit
         result = (num_convet*9/5)+32
@@ -356,7 +365,7 @@ elif num_func == 5:
         scale_after = "Celsius"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Kelvin to proper Celsius
         result = num_convet-273.15
@@ -369,7 +378,7 @@ elif num_func == 5:
         scale_after = "Kelvin"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Celsius to proper Kelvin
         result = num_convet+273.15
@@ -385,7 +394,7 @@ elif num_func == 6:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 3)
 
     #Byte -> Byte mode
@@ -397,7 +406,7 @@ elif num_func == 6:
         scale_after = "Bit"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Byte to proper Bit
         result = num_convet*8
@@ -410,7 +419,7 @@ elif num_func == 6:
         scale_after = "Byte"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet MegaByte to proper Byte
         result = num_convet*1000000
@@ -423,7 +432,7 @@ elif num_func == 6:
         scale_after = "MegaByte"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet GigaByte to proper MegaByte
         result = num_convet*1000
@@ -439,7 +448,7 @@ elif num_func == 7:
 
     #Get a sub-menu number user want to use
     num_sub = input("Which sub-menu do you want?(1~3) : ")
-    #Check the sub-menu number is valid and get the string->number
+    #Check the sub-menu number is valid and get the string->int
     num_sub = check_valid_num(num_sub, 1, 3)
 
     #Year -> Month mode
@@ -451,7 +460,7 @@ elif num_func == 7:
         scale_after = "Month"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Year to proper Month
         result = num_convet*12
@@ -464,7 +473,7 @@ elif num_func == 7:
         scale_after = "Week"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Year to proper Week
         result = num_convet*52.143
@@ -477,10 +486,10 @@ elif num_func == 7:
         scale_after = "Day"
         #Get a number to convert
         num_convert = input("Put a number to convert(positive integer) : ")
-        #Check the sub-menu number is valid and get the string->number
+        #Check the sub-menu number is valid and get the string->int
         num_convet = check_valid_num_convert(num_convert)
         #convert num_convet Year to proper Day
         result = num_convet*365
 
-#print result
+#print result to the second decimal point
 print("\nResult :", num_convert, scale_before, "-> ", '%.2f' % result, scale_after)
