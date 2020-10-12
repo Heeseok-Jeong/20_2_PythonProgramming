@@ -1,12 +1,3 @@
-#스토리 : 맥도날드 주문
-#캐릭터 : 1. Big boy, 2. Healthy girl, 3. Old man
-#이벤트 : 1. 햄버거, 2.감자튀김, 3. 콜라, 4.아이스크림
-#점수(6보다 커야함 )
-#1. (2, 1), (1, 2), (2, 1)
-#2. (2, 1), (2, 1), (2, 1)
-#3. (2, 1), (1, 2), (1, 2)
-#4. (2, 1), (2, 1), (2, 1)
-
 print("Welcome to 'Order in MxxDonalds' Game!") # Q1
 
 characterList = ['1. Tom', '2. Sally', '3. Mark'] # Q2-A set 3 names
